@@ -25,7 +25,13 @@ In this section, I will be starting off with the existing network topology below
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%201.png">
 
+Let's start by setting up the devices, configuring their cabling and IP addressing. Then we can make sure the connections work by pinging the devices.
+
 <h2>Device Setup</h2>
+
+Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone
+
+We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them
 
 <h2>Cabling</h2>
 
