@@ -9,6 +9,8 @@ resilient network growth
 - Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a
 multi-layer enterprise environment
 
+This project will be split into 6 parts, with each section focusing on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+
 <h2>Technologies Used</h2>
 
 - <a href="https://www.netacad.com/cisco-packet-tracer"> Cisco Packet Tracer<a/> (version 8.2.2)
