@@ -21,7 +21,7 @@ This project will be split into 6 parts, with each section focusing on a differe
 
 <h1>Part 1: Basic Ethernet and IP Networking</h1>
 
-In this section, I will be starting off with the existing network topology below and will be adding the two LANs highlighted in blue.
+In this section, we will be starting off with the existing network topology below and will be adding the two LANs highlighted in blue.
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%201.png">
 
@@ -31,7 +31,9 @@ Let's start by setting up the devices, configuring their cabling and IP addressi
 
 Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone
 
-We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them
+We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them.
+
+_insert image_
 
 <h2>Cabling</h2>
 
