@@ -18,3 +18,17 @@ This project will be split into 6 parts, with each section focusing on a differe
 <h2>What is Cisco Packet Tracer?</h2>
 
 <a href="https://www.netacad.com/cisco-packet-tracer"> Cisco Packet Tracer<a/> is a comprehensive, widely used, and free network simulation software tool. It enables users to design, configure, and troubleshoot network topologies without the need for physical hardware. Cisco packet tracer offers realistic simulation and visualization for modern computer networks, making it ideal for simulating both greenfield and brownfield computer network environments. Feel free to check out their <a href="https://www.netacad.com/cisco-packet-tracer"> website<a/> for more information about Cisco Packet Tracer and its capabilities.
+
+<h1>Part 1: Basic Ethernet and IP Networking</h1>
+
+In this section, I will be starting off with the existing network topology below and will be adding the two LANs highlighted in blue.
+
+__insert image__ of network topology
+
+<h2>Device Setup</h2>
+
+<h2>Cabling</h2>
+
+<h2>IP Addressing</h2>
+
+<h2>Verifying Connections</h2>
