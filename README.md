@@ -23,7 +23,7 @@ This project will be split into 6 parts, with each section focusing on a differe
 
 In this section, I will be starting off with the existing network topology below and will be adding the two LANs highlighted in blue.
 
-__insert image__ of network topology
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%201.png">
 
 <h2>Device Setup</h2>
 
