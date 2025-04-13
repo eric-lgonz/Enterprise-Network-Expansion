@@ -95,10 +95,69 @@ From Device | From Port | Cable Type | To Device | To Port
 
 </div>
 
-After all of the cabling, this is how the topology should look:
+After all of the cabling, this is what the topology looks like:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2011.png">
 
 <h2>IP Addressing</h2>
+
+For the IP addressing, we can manually configure each device. Normally, this would be automated using DHCP, which I will demonstrate in a later part of this project for the IP Phone. But for now, this is how to configure the default gateway and DNS server for an end device:
+
+First click on the device, then go to the config tab. From there, click on settings, which is where you can manually configure the IP address settings:
+
+_insert image_
+
+Now I'll configure the rest of the IPv4 address settings according to this table:
+
+<div align ="center">
+
+Device | IPv4 Address | IPv4 Network | Default Gateway | DNS Server
+|:---:|:-------------:|:-----------------------:|:-------:|:-----:|
+| **Left-side of the topology** |
+| PC0 | 10.10.1.100/24 | 10.10.1.0/24 | 10.10.1.1 | 10.2.1.10 |
+| PC1 | 10.10.1.101/24 | 10.10.1.0/24 | 10.10.1.1 | 10.2.1.10 |
+| PC2 | 10.20.1.100/24 | 10.20.1.0/24 | 10.20.1.1 | 10.2.1.10 |
+| PC3 | 10.20.1.101/24 | 10.20.1.0/24 | 10.20.1.1 | 10.2.1.10 |
+| PC4 | 10.20.1.102/24 | 10.20.1.0/24 | 10.20.1.1 | 10.2.1.10 |
+| **Right-side of the topology** |
+| PC5 | 10.30.2.100/24 | 10.30.2.0/24 | 10.30.2.1 | 10.2.1.10 |
+| PC6 | 10.30.2.101/24 | 10.30.2.0/24 | 10.30.2.1 | 10.2.1.10 |
+| PC7 | 10.40.2.100/24 | 10.40.2.0/24 | 10.40.2.1 | 10.2.1.10 |
+| PC8 | 10.30.2.102/24 | 10.30.2.0/24 | 10.30.2.1 | 10.2.1.10 |
+| PC9 | 10.40.2.102/24 | 10.40.2.0/24 | 10.40.2.1 | 10.2.1.10 |
+| **IP Phone and Laptops** |
+| IP Phone0 | 10.10.1.x/24 DHCP | N/A | N/A | N/A |
+| Laptop0 | 10.121.0.100 | 10.121.0.0/24 | 10.121.0.1 | 10.2.1.10 |
+| Laptop1 | 10.122.0.100 | 10.122.0.0/24 | 10.122.0.1 | 10.2.1.10 |
+
+</div>
+
+Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let'c set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1". Here is the process of how to do that:
+
+_insert image_
+_insert image_
+
+For the laptops, we are going to connect them to the network wirelessly. To do that, they need to have a wireless network interface card (NIC) instead of their wired NIC. We can do this by powering off each laptop, removing the wired NIC, installing the wireless NIC, and then powering back on the laptop:
+
+_insert image_
+_insert image_
+_insert image_
+_insert image_
+
+Once that is done for both laptops, we can set the corresponding SSID in config tab under the wireless interface. This will allow the laptops to "associate" with their respective access points:
+
+_insert image_
+_insert image_
+
+Lastly, we can now configure all of the IPv4 address settings for the laptops, using the same method we did for the other end devices:
+
+<div align ="center">
+
+Device | IPv4 Address | IPv4 Network | Default Gateway | DNS Server
+|:---:|:-------------:|:-----------------------:|:-------:|:-----:|
+| Laptop0 | 10.121.0.100/24 | 10.121.0.0/24 | 10.121.0.1 | 10.2.1.10 |
+| Laptop1 | 10.122.0.100/24 | 10.122.0.0/24 | 10.122.0.1 | 10.2.1.10 |
+
+</div>
 
 <h2>Verifying Connections</h2>
