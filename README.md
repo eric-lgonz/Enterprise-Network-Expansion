@@ -31,11 +31,41 @@ Let's start by setting up the devices, configuring their cabling and IP addressi
 
 Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone
 
-We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them.
+We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them:
 
+_insert image_
+_insert image_
+
+We can do the same for the IP phone:
+
+_insert image_
 _insert image_
 
 <h2>Cabling</h2>
+
+Now let's connect all the devices together with cables, except for the laptops, those will have a wireless connection. I will be using copper straight-through cables for connections between different kinds of devices (pc to switch), and copper cross-over cables for similar devices (switch to switch).
+
+To demonstrate how to connect the cables, here's how to set up the connection between PC0 and Switch0:
+
+First click the connections icon on the bottom (the lightning bolt), and select on the type of cable you want to use:
+
+_insert image_
+_insert image_
+
+Then bring the cable to your starting device, choose the port to connect it on, and then do the same for the device with the other end of the cable:
+
+_insert image_
+_insert image_
+
+Afterwords, the connection will look like this:
+
+_insert image_
+
+I will be configuring the cabling according to this table:
+
+After all of the cabling, this is how my topology should look:
+
+_insert image_
 
 <h2>IP Addressing</h2>
 
