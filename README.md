@@ -105,7 +105,7 @@ For the IP addressing, we can manually configure each device. Normally, this wou
 
 First click on the device, then go to the config tab. From there, click on settings, which is where you can manually configure the IP address settings:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2012.png">
 
 Now I'll configure the rest of the IPv4 address settings according to this table:
 
@@ -132,22 +132,22 @@ Device | IPv4 Address | IPv4 Network | Default Gateway | DNS Server
 
 </div>
 
-Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let'c set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1". Here is the process of how to do that:
+Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let'c set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1":
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2013.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2014.png">
 
 For the laptops, we are going to connect them to the network wirelessly. To do that, they need to have a wireless network interface card (NIC) instead of their wired NIC. We can do this by powering off each laptop, removing the wired NIC, installing the wireless NIC, and then powering back on the laptop:
 
-_insert image_
-_insert image_
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2015.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2016.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2017.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2018.png">
 
 Once that is done for both laptops, we can set the corresponding SSID in config tab under the wireless interface. This will allow the laptops to "associate" with their respective access points:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2019.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2020.png">
 
 Lastly, we can now configure all of the IPv4 address settings for the laptops, using the same method we did for the other end devices:
 
