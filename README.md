@@ -173,7 +173,7 @@ Now let's do a ping between devices on different networks. For example, PC0 shou
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2023.png">
 
-Now that we have verified that the devices are configured properly, that wraps up Part 1 of this project. Let's take a look at our network topology after completing Part 1:
+Now that we have verified that the devices are configured properly, that wraps up Part 1 of this project. Let's take a look at our new network topology:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
 
