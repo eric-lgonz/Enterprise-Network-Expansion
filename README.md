@@ -166,16 +166,16 @@ We can make sure everything was configured properly by testing if devices in the
 
 Let's do a ping from PC2 to PC3, which should work because they are on the same network. We can do this by clicking on PC2, navigating to the Desktop tab, and clicking on Command Prompt. Then we can enter <code>ping 10.20.1.101</code>:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2021.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2022.png">
 
 Now let's do a ping between devices on different networks. For example, PC0 should not be able to ping PC3:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2023.png">
 
 Now that we have verified that the devices are configured properly, that wraps up Part 1 of this project. Let's take a look at our network topology after completing Part 1:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
 
 <h1>Part 2 VLANs and Trunks</h1>
 
