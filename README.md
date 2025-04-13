@@ -177,6 +177,6 @@ Now that we have verified that the devices are configured properly, that wraps u
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
 
-<h1>Part 2 VLANs and Trunks</h1>
+<h1>Part 2: VLANs and Trunks</h1>
 
 
