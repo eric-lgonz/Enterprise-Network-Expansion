@@ -33,13 +33,13 @@ Some of the devices need their power supply to be set up before connecting them,
 
 We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%203.png">
 
 We can do the same for the IP phone:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%205.png">
 
 <h2>Cabling</h2>
 
@@ -49,17 +49,17 @@ To demonstrate how to connect the cables, here's how to set up the connection be
 
 First click the connections icon on the bottom (the lightning bolt), and select on the type of cable you want to use:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%207.png">
 
 Then bring the cable to your starting device, choose the port to connect it on, and then do the same for the device with the other end of the cable:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%208.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%209.png">
 
 Afterwords, the connection will look like this:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2010.png">
 
 I will be configuring the cabling according to this table:
 
