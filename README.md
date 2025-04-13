@@ -29,9 +29,7 @@ Let's start by setting up the devices, configuring their cabling and IP addressi
 
 <h2>Device Setup</h2>
 
-Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone
-
-We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them:
+Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone. We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%202.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%203.png">
@@ -43,9 +41,7 @@ We can do the same for the IP phone:
 
 <h2>Cabling</h2>
 
-Now let's connect all the devices together with cables, except for the laptops, those will have a wireless connection. I will be using copper straight-through cables for connections between different kinds of devices (pc to switch), and copper cross-over cables for similar devices (switch to switch).
-
-To demonstrate how to connect the cables, here's how to set up the connection between PC0 and Switch0:
+Now let's connect all the devices together with cables, except for the laptops, those will have a wireless connection. I will be using copper straight-through cables for connections between different kinds of devices (pc to switch), and copper cross-over cables for similar devices (switch to switch). To demonstrate how to connect the cables, here's how to set up the connection between PC0 and Switch0:
 
 First click the connections icon on the bottom (the lightning bolt), and select on the type of cable you want to use:
 
@@ -61,7 +57,9 @@ Afterwords, the connection will look like this:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2010.png">
 
-I will be configuring the cabling according to this table:
+I will be configuring the rest of the connections according to this table:
+
+
 
 After all of the cabling, this is how my topology should look:
 
