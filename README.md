@@ -17,7 +17,7 @@ This project will be split into 6 parts, with each section focusing on a differe
 
 <h2>What is Cisco Packet Tracer?</h2>
 
-<a href="https://www.netacad.com/cisco-packet-tracer"> Cisco Packet Tracer<a/> is a comprehensive, widely used, and free network simulation software tool. It enables users to design, configure, and troubleshoot network topologies without the need for physical hardware. Cisco packet tracer offers realistic simulation and visualization for modern computer networks, making it ideal for simulating both greenfield and brownfield computer network environments. Feel free to check out their <a href="https://www.netacad.com/cisco-packet-tracer"> website<a/> for more information about Cisco Packet Tracer and its capabilities.
+<a href="https://www.netacad.com/cisco-packet-tracer"> Cisco Packet Tracer<a/> is a comprehensive, widely used, and free network simulation software tool. It enables users to design, configure, and troubleshoot network topologies without the need for physical hardware. Cisco Packet Tracer offers realistic simulation and visualization for modern computer networks, making it ideal for simulating both greenfield and brownfield computer network environments. Feel free to check out their <a href="https://www.netacad.com/cisco-packet-tracer"> website<a/> for more information about Cisco Packet Tracer and its capabilities.
 
 <h1>Part 1: Basic Ethernet and IP Networking</h1>
 
@@ -53,11 +53,11 @@ Then bring the cable to your starting device, choose the port to connect it on, 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%208.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%209.png">
 
-Afterwords, the connection will look like this:
+Afterwards, the connection will look like this:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2010.png">
 
-Now I'll configuring the rest of the connections according to this table:
+Now I'll configure the rest of the connections according to this table:
 
 <div align ="center">
 
@@ -132,7 +132,7 @@ Device | IPv4 Address | IPv4 Network | Default Gateway | DNS Server
 
 </div>
 
-Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let'c set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1":
+Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let's set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1":
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2013.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2014.png">
