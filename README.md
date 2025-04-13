@@ -69,6 +69,29 @@ From Device | From Port | Cable Type | To Device | To Port
 | PC2 | Fast Ethernet | Copper Straight-Through | Switch1 | Fa0/6 |
 | PC3 | Fast Ethernet | Copper Straight-Through | Switch3 | Fa0/3 |
 | PC4 | Fast Ethernet | Copper Straight-Through | Switch2 | Fa0/5 |
+| PC5 | Fast Ethernet | Copper Straight-Through | Switch4 | Fa0/5 |
+| PC6 | Fast Ethernet | Copper Straight-Through | Switch5 | Fa0/5 |
+| PC7 | Fast Ethernet | Copper Straight-Through | Switch5 | Fa0/6 |
+| PC8 | Fast Ethernet | Copper Straight-Through | Switch7 | Fa0/6 |
+| PC9 | Fast Ethernet | Copper Straight-Through | Switch6 | Fa0/5 |
+| **IP Phone and Access Points** |
+| IP Phone0 | Switch | Copper Straight-Through | Switch1 | Fa0/5 |
+| Access Point0 | Port0 | Copper Straight-Through | Switch3 | Fa0/5 |
+| Access Point1 | Port0 | Copper Straight-Through | Switch7 | Fa0/5 |
+| **Multilayer Switch to Access Switch** |
+| MLS0 | G1/0/1 | Copper Cross-Over | Switch0 | G0/1 |
+| MLS0 | G1/0/2 | Copper Cross-Over | Switch2 | G0/1 |
+| MLS1 | G1/0/1 | Copper Cross-Over | Switch4 | G0/1 |
+| MLS1 | G1/0/2 | Copper Cross-Over | Switch6 | G0/1 |
+| **Access Switch to Access Switch** |
+| Switch0 | Fa0/1 | Copper Cross-Over | Switch1 | Fa0/1 |
+| Switch0 | Fa0/2 | Copper Cross-Over | Switch1 | Fa0/2 |
+| Switch2 | Fa0/1 | Copper Cross-Over | Switch3 | Fa0/1 |
+| Switch2 | Fa0/2 | Copper Cross-Over | Switch3 | Fa0/2 |
+| Switch4 | Fa0/1 | Copper Cross-Over | Switch5 | Fa0/1 |
+| Switch4 | Fa0/2 | Copper Cross-Over | Switch5 | Fa0/2 |
+| Switch6 | Fa0/1 | Copper Cross-Over | Switch7 | Fa0/1 |
+| Switch6 | Fa0/2 | Copper Cross-Over | Switch7 | Fa0/2 |
 
 </div>
 
