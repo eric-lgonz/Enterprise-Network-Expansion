@@ -95,7 +95,7 @@ From Device | From Port | Cable Type | To Device | To Port
 
 </div>
 
-After all of the cabling, this is how my topology should look:
+After all of the cabling, this is how the topology should look:
 
 _insert image_
 
