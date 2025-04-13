@@ -57,7 +57,7 @@ Afterwords, the connection will look like this:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2010.png">
 
-I will be configuring the rest of the connections according to this table:
+Now I'll configuring the rest of the connections according to this table:
 
 <div align ="center">
 
@@ -97,7 +97,7 @@ From Device | From Port | Cable Type | To Device | To Port
 
 After all of the cabling, this is how the topology should look:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2011.png">
 
 <h2>IP Addressing</h2>
 
