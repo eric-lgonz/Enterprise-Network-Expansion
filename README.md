@@ -59,7 +59,18 @@ Afterwords, the connection will look like this:
 
 I will be configuring the rest of the connections according to this table:
 
+<div align ="center">
 
+From Device | From Port | Cable Type | To Device | To Port
+|:---:|:-------------:|:-----------------------:|:-------:|:-----:|
+| **PCs** |
+| PC0 | Fast Ethernet | Copper Straight-Through | Switch0 | Fa0/5 |
+| PC1 | Fast Ethernet | Copper Straight-Through | IP Phone0 | PC |
+| PC2 | Fast Ethernet | Copper Straight-Through | Switch1 | Fa0/6 |
+| PC3 | Fast Ethernet | Copper Straight-Through | Switch3 | Fa0/3 |
+| PC4 | Fast Ethernet | Copper Straight-Through | Switch2 | Fa0/5 |
+
+</div>
 
 After all of the cabling, this is how my topology should look:
 
