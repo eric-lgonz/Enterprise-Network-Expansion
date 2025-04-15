@@ -9,7 +9,9 @@ resilient network growth
 - Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a
 multi-layer enterprise environment
 
-This project will be split into 6 parts, with each section focusing on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+This project will be split into 7 parts, with a new part being uploaded each week until 5/25/25. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+
+Credit: Rick Graziani, professor at University of California - Santa Cruz and Curriculum Engineering Team Member at Cisco, created the idea for this lab that uses Packet Tracer. My project shown here is a write up that demostrates my knowledge of the lab, with my own adjustments in its implementation.
 
 <h2>Technologies Used</h2>
 
@@ -177,6 +179,16 @@ Now that we have verified that the devices are configured properly, that wraps u
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
 
-<h1>Part 2: VLANs and Trunks (Coming Soon)</h1>
+<h1>Part 2: VLANs and Trunks (Coming 4/20/25)</h1>
+
+<h1>Part 3: SVIs (Coming 4/27/25)</h1>
+
+<h1>Part 4: Routed Ports and Static Routing (Coming 5/4/25)/</h1>
+
+<h1>Part 5: EtherChannel and Examining STP(Coming 5/11/25)</h1>
+
+<h1>Part 6: Connecting to the Core (Coming 5/18/25)</h1>
+
+<h1>Part 7: DHCP (Coming 5/25/25)</h1>
 
 
