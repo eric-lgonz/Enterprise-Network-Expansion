@@ -185,7 +185,7 @@ Now that we have verified that the devices are configured properly, that wraps u
 
 <h1>Part 4: Routed Ports and Static Routing (Coming 5/4/25)/</h1>
 
-<h1>Part 5: EtherChannel and Examining STP(Coming 5/11/25)</h1>
+<h1>Part 5: EtherChannel and Examining STP (Coming 5/11/25)</h1>
 
 <h1>Part 6: Connecting to the Core (Coming 5/18/25)</h1>
 
