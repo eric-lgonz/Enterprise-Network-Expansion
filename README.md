@@ -179,20 +179,20 @@ Now that we have verified that the devices are configured properly, that wraps u
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
 
-<h1>Part 2: VLANs and Trunks (Coming 4/20/25)</h1>
+<h1>Part 2: VLANs and Trunks</h1>
 
-For part 2, we will be focusing on configuring VLANs and trunks in our new switch block. To do this, we will be configuring both the multi-layer switches and the access switches.
+For part 2, we will be focusing on configuring VLANs and trunks in our new switch block. To do this, we will be configuring both multi-layer switches and the access switches.
 
 <h2>Basic CLI Configuration for the Switches</h2>
 
 First, let's change the display names on the switches to make the topology more clear. Click on the display name for each switch and set it to match the screenshot below:
 
-_insert image_
-Note: I disabled the device model names by going to <code>Options -> Preferences -> Show Device Model Labels</code>
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%201.png">
+Note: I disabled the device model names by going to <code>Options -> Preferences -> Show Device Model Labels</code><br><br>
 
 Now, let's use the command line interface (CLI) to set up each switch with security and access settings. This is essential to begin the process of setting up VLANs. On each individual switch (both distribution and access switches) we can use the commands shown below to set up their settings. Be sure to change the hostname field to match the display name of the switch:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%202.png">
 Note: The passwords I chose are very insecure, as I chose them for simplicity. They should not be used outside of a contained lab setting.
 
 Let's dive into what each of those commands does:
@@ -220,7 +220,7 @@ After completing this process for all of the switches, we can start to add the V
 
 By default, all ports are on the same VLAN, VLAN 1. This is the default VLAN, as you can see below on the access switch:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%203.png">
 
 Each department in our network will get their own VLAN, and we will set these up for each switch.
 
@@ -245,9 +245,9 @@ VLAN ID | Name | 10.vlan.0.0/16
 
 We can enter the following commands on each switch to set up these VLANs:
 
-_insert image_
-Don't forget to run <code>copy run start</code> to save the config!
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%204.png">
+Don't forget to run <code>copy run start</code> to save the config!<br><br>
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%205.png">
 
 Let's take a look at what these commands do:
 - <code>vlan &lt;vlan ID&gt;</code> - This puts us into the configuration mode for a specific VLAN ID. Note that even without this command, a VLAN will still be created if an interface is configured to be a member of that VLAN ID.
@@ -302,7 +302,7 @@ Here's what each command is doing:
 
 As you can see, the Fa0/5 port was assigned to VLAN 10 on Access-1-1.
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%206.png">
 
 <h2>Establishing Trunks</h2>
 
@@ -366,15 +366,15 @@ Let's make sure that the network is still connected properly by sending pings be
 
 Ping from PC0 to PC1:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%207.png">
 
 Ping from PC2 to PC3:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%208.png">
 
 Now that we have verified that the connections work properly, we can review our network topology and move on to configuring SVIs.
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%209.png">
 
 <h1>Part 3: SVIs (Coming 4/27/25)</h1>
 
