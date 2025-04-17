@@ -348,24 +348,33 @@ Note that you may initially get errors due to native VLAN mismatches, but this w
 <code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
 
 <h4>Access-2-4:</h4>
-<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code><br>
+
+
 
 Let's break down what these commands do:
-- <code></code> - 
+- <code>interface range GigabitEthernet1/0/1-2</code> - This enters the configuration mode for the interfaces in this range.
+- <code>shutdown</code> - This disables the chosen interfaces, which is good practice when making significant changes.
+- <code>switchport mode trunk</code> - This configures the interface to be a trunk port.
+- <code>switchport trunk native vlan 254</code> - This sets VLAN 254 to be the native VLAN, instead of 1.
+- <code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code> - This configures the trunk link to carry only the specified VLANs.
+- <code>switchport nonegotiate</code> - This disables Dynamic Trunking Protocol (DTP), which means that both ends of the link have to be configured.
+- <code>no shutdown</code> - This re-enables the disabled interfaces.
+- <code>exit</code> - This takes us out of interface configuration mode and puts us back into global configuration mode.
 
+<h2>Verifying Pings</h2>
 
+Let's make sure that the network is still connected properly by sending pings between devices.
 
+Ping from PC0 to PC1:
 
+_insert image_
 
+Ping from PC2 to PC3:
 
+_insert image_
 
-
-
-
-
-
-
-
+Now that we have verified that the connections work properly, we can review our network topology and move on to configuring SVIs.
 
 <h1>Part 3: SVIs (Coming 4/27/25)</h1>
 
