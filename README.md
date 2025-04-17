@@ -214,15 +214,47 @@ Let's dive into what each of those commands do:
 - <code>transport input ssh</code> - Sets remote access to only use ssh.
 - <code>copy running-config startup-config</code> - This saves the current configuration stay the same after a reboot.
 
-After completing this process for all of the switches, we can start to add VLANs.
+After completing this process for all of the switches, we can start to add the VLANs.
 
 <h2>Configuring the VLANs</h2>
 
+By default, all ports are on the same VLAN, VLAN 1. This is the default VLAN, as you can see below on the access switch:
+
+_insert image_
+
 Each department in our network will get their own VLAN, and we will set these up for each switch.
 
+<div align ="center">
 
+VLAN ID | Name | 10.vlan.0.0/16
+|:---:|:-------------:|:------:|
+| 1 | Default | N/A |
+| 10 | Engineering | 10.10.1.0/24 |
+| 20 | QA - Engineering | 10.20.1.0/24 |
+| 30 | Sales | 10.30.2.0/24 |
+| 40 | Marketing | 10.40.2.0/24 |
+| 101 | Voice-1 | 10.101.0.0/16 |
+| 102 | Voice-2 | 10.102.0.0/16 |
+| 121 | Guest-1 | 10.121.0.0/16 |
+| 122 | Guest-2 | 10.122.0.0/16 |
+| 180 | Management | 10.180.0.0/16 |
+| 254 | Native | 10.254.0.0/16 |
+| 255 | Parking-Lot | 10.255.0.0/16 |
 
+</div>
 
+We can enter the following commands on each switch to set up these VLANs:
+
+_insert image_
+_insert image_
+
+Let's take a look at what these commands do:
+- <code>vlan &lt;vlan ID&gt;</code> - This puts us into the configuration mode for a specific VLAN ID. Note that even without this command, a VLAN will still be created if an interface is configured to be a member of that VLAN ID.
+- <code>name &lt;name&gt;</code> - This names the VLAN.
+
+<h2>Setting Up the Access Ports</h2>
+
+So now we have made the VLANs, but the ports for each switch are all still on the native VLAN.
 
 <h1>Part 3: SVIs (Coming 4/27/25)</h1>
 
