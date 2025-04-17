@@ -246,6 +246,7 @@ VLAN ID | Name | 10.vlan.0.0/16
 We can enter the following commands on each switch to set up these VLANs:
 
 _insert image_
+Don't forget to run <code>copy run start</code> to save the config!
 _insert image_
 
 Let's take a look at what these commands do:
@@ -254,7 +255,63 @@ Let's take a look at what these commands do:
 
 <h2>Setting Up the Access Ports</h2>
 
-So now we have made the VLANs, but the ports for each switch are all still on the native VLAN.
+So now we have made the VLANs, but the ports for each switch are all still on the native VLAN. We want to configure access ports to particular VLANs, which we then use to connect the switch to an end device on that VLAN.
+
+We can do this with the following commands for each switch (make sure you are in "configure terminal" mode:
+
+<h4>Access-1-1:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 10</code><br><code>exit</code>
+
+<h4>Access-1-2:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 20</code><br><code>exit</code>
+
+<h4>Access-1-3:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 10</code><br><code>exit</code>
+
+<code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 20</code><br><code>exit</code>
+
+<h4>Access-1-4:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 121</code><br><code>exit</code>
+
+<code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 20</code><br><code>exit</code>
+
+<h4>Access-2-1:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 30</code><br><code>exit</code>
+
+<h4>Access-2-2:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 40</code><br><code>exit</code>
+
+<h4>Access-2-3:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 30</code><br><code>exit</code>
+
+<code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 40</code><br><code>exit</code>
+
+<h4>Access-2-4:</h4>
+<code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 122</code><br><code>exit</code>
+
+<code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 30</code><br><code>exit</code>
+
+As you can see, the Fa0/5 port was assigned to VLAN 10 on Access-1-1.
+
+_insert image_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <h1>Part 3: SVIs (Coming 4/27/25)</h1>
 
