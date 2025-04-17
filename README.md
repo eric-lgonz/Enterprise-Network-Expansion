@@ -372,7 +372,7 @@ Ping from PC2 to PC3:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%208.png">
 
-Now that we have verified that the connections work properly, we can review our network topology and move on to configuring SVIs.
+Now that we have verified that the connections work properly, we can review our network topology and move on to Part 3!
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%209.png">
 
