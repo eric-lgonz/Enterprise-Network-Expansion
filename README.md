@@ -190,29 +190,29 @@ First, let's change the display names on the switches to make the topology more 
 _insert image_
 Note: I disabled the device model names by going to <code>Options -> Preferences -> Show Device Model Labels</code>
 
-Now, lets use the command line interface (CLI) to set up each switch with security and access settings. This is essential to begin the process of setting up VLANs. On each individual switch (both distribution and access switches) we can use the commands shown below to set up their settings. Be sure to change the hostname field to match the display name of the switch:
+Now, let's use the command line interface (CLI) to set up each switch with security and access settings. This is essential to begin the process of setting up VLANs. On each individual switch (both distribution and access switches) we can use the commands shown below to set up their settings. Be sure to change the hostname field to match the display name of the switch:
 
 _insert image_
 Note: The passwords I chose are very insecure, as I chose them for simplicity. They should not be used outside of a contained lab setting.
 
-Let's dive into what each of those commands do:
+Let's dive into what each of those commands does:
 - <code>enable</code> - This enables privileged exec mode, giving more control over the switch.
 - <code>conf t</code> - Short for configure terminal, which allows you to configure the switch settings.
 - <code>hostname Distribution-1</code> - This changes the switches hostname to Distribution-1.
 - <code>no ip domain-lookup</code> - Disables DNS lookups so that mistyped commands aren't read as hostnames.
-- <code>enable secret class</code> - Sets the password "class" for privileged exex mode.
+- <code>enable secret class</code> - Sets the password "class" for privileged exec mode.
 - <code>username admin secret sshadmin</code> - Creates a user account with credentials admin, sshadmin.
-- <code>ip domain-name SSh-KEY.com</code> - This alllows us to generate SSH keys.
+- <code>ip domain-name SSh-KEY.com</code> - This allows us to generate SSH keys.
 - <code>crypto key generate rsa general-keys modulus 1024</code> - Creates a 1024-bit RSA key pair.
 - <code>line con 0</code> - This puts us into configuration mode.
-- <code>exec-timeout 0 0</code> - Disables the idle timout, allowing the session to be open indefinitely.
+- <code>exec-timeout 0 0</code> - Disables the idle timeout, allowing the session to be open indefinitely.
 - <code>logging synchronous</code> - This makes it so that system messages won't interrupt console command input.
 - <code>password cisco</code> - Sets the password for console access to "cisco".
 - <code>login</code> - Enables password authentication to access the console.
 - <code>line vty 0 15</code> - Opens configuration mode for virtual terminal (VTY) lines. This is used for remote access.
 - <code>login local</code> - Sets up the VTY lines to use the local username and password for authentication.
-- <code>transport input ssh</code> - Sets remote access to only use ssh.
-- <code>copy running-config startup-config</code> - This saves the current configuration stay the same after a reboot.
+- <code>transport input ssh</code> - Sets remote access to only use SSH.
+- <code>copy running-config startup-config</code> - This saves the current configuration to persist after a reboot.
 
 After completing this process for all of the switches, we can start to add the VLANs.
 
@@ -310,7 +310,7 @@ We use trunk links to carry multiple VLANs on a single interface, using tags to 
 
 We can do this with the following commands for each switch (make sure you are in "configure terminal" mode:
 
-Note that you may initially get errors due to native VLAN mismatches, but this will be resolved once all of the trunk links are configured.
+Note: You may initially get errors due to native VLAN mismatches, but this will be resolved once all of the trunk links are configured.
 
 <h4>Distribution-1:</h4>
 <code>interface range GigabitEthernet1/0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
@@ -348,15 +348,13 @@ Note that you may initially get errors due to native VLAN mismatches, but this w
 <code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
 
 <h4>Access-2-4:</h4>
-<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code><br>
-
-
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code><br><br>
 
 Let's break down what these commands do:
 - <code>interface range GigabitEthernet1/0/1-2</code> - This enters the configuration mode for the interfaces in this range.
 - <code>shutdown</code> - This disables the chosen interfaces, which is good practice when making significant changes.
 - <code>switchport mode trunk</code> - This configures the interface to be a trunk port.
-- <code>switchport trunk native vlan 254</code> - This sets VLAN 254 to be the native VLAN, instead of 1.
+- <code>switchport trunk native vlan 254</code> - This sets VLAN 254 to be the native VLAN.
 - <code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code> - This configures the trunk link to carry only the specified VLANs.
 - <code>switchport nonegotiate</code> - This disables Dynamic Trunking Protocol (DTP), which means that both ends of the link have to be configured.
 - <code>no shutdown</code> - This re-enables the disabled interfaces.
@@ -375,6 +373,8 @@ Ping from PC2 to PC3:
 _insert image_
 
 Now that we have verified that the connections work properly, we can review our network topology and move on to configuring SVIs.
+
+_insert image_
 
 <h1>Part 3: SVIs (Coming 4/27/25)</h1>
 
