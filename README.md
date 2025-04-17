@@ -270,6 +270,10 @@ We can do this with the following commands for each switch (make sure you are in
 
 <code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 20</code><br><code>exit</code>
 
+Since this switch is connected to the phone, we will receive an error that VLAN 10 has not been configured for voice traffic. We can fix this by using the following commands:
+
+<code>interface FastEthernet0/5</code><br><code>switchport voice vlan 101</code><br><code>mls qos trust cos</code><br><code>exit</code>
+
 <h4>Access-1-4:</h4>
 <code>interface FastEthernet0/5</code><br><code>switchport mode access</code><br><code>switchport access vlan 121</code><br><code>exit</code>
 
@@ -291,13 +295,63 @@ We can do this with the following commands for each switch (make sure you are in
 
 <code>interface FastEthernet0/6</code><br><code>switchport mode access</code><br><code>switchport access vlan 30</code><br><code>exit</code>
 
+Here's what each command is doing:
+- <code>interface FastEthernet0/5</code> - Enters configuration mode for the FastEthernet0/5 interface.
+- <code>switchport mode access</code> - This configures the port as an access port, which means that it will only carry the traffic for a single VLAN.
+- <code>switchport access vlan 10</code> - This assigns the port to VLAN 10.
+
 As you can see, the Fa0/5 port was assigned to VLAN 10 on Access-1-1.
 
 _insert image_
 
+<h2>Establishing Trunks</h2>
 
+We use trunk links to carry multiple VLANs on a single interface, using tags to identify the VLANs. By using trunks, we greatly reduce the amount of physical interfaces we need in order to distribute VLANs across the network.
 
+We can do this with the following commands for each switch (make sure you are in "configure terminal" mode:
 
+Note that you may initially get errors due to native VLAN mismatches, but this will be resolved once all of the trunk links are configured.
+
+<h4>Distribution-1:</h4>
+<code>interface range GigabitEthernet1/0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Distribution-2:</h4>
+<code>interface range GigabitEthernet1/0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-1-1:</h4>
+<code>interface GigabitEthernet0/1</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-1-2:</h4>
+<code>interface GigabitEthernet0/1</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-1-3:</h4>
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-1-4:</h4>
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-2-1:</h4>
+<code>interface GigabitEthernet0/1</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-2-2:</h4>
+<code>interface GigabitEthernet0/1</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-2-3:</h4>
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+<h4>Access-2-4:</h4>
+<code>interface range FastEthernet0/1-2</code><br><code>shutdown</code><br><code>switchport mode trunk</code><br><code>switchport native vlan 254</code><br><code>switchport trunk allowed vlan 1,10,20,30,40,101-102,121-122,180,254</code><br><code>switchport nonegotiate</code><br><code>no shutdown</code><br><code>exit</code>
+
+Let's break down what these commands do:
+- <code></code> - 
 
 
 
