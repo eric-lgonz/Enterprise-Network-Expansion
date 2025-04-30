@@ -376,7 +376,7 @@ Now that we have verified that the connections work properly, we can review our 
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%209.png">
 
-<h1>Part 3: SVIs (Coming 4/27/25)</h1>
+<h1>Part 3: SVIs (Coming 4/31/25)</h1>
 
 <h1>Part 4: Routed Ports and Static Routing (Coming 5/4/25)</h1>
 
