@@ -1,4 +1,4 @@
-# Enterprise-Network-Expansion-and-VLAN-Implementation
+# Enterprise-Network-Expansion
 
 In this project, I demonstrate how to:
 
