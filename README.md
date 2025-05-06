@@ -378,6 +378,43 @@ Now that we have verified that the connections work properly, we can review our 
 
 <h1>Part 3: SVIs (Coming 5/7/25)</h1>
 
+In this part of the project, we will now be configuring SVIs. An Switched Virtual Interface, or SVI, allows for remote management on switches. It does this by assigning an IP address to a VLAN on the switch, which allows us to now access that virtual interface remotely, and therefore remotely manage the switch.
+
+We will be configuring SVIs for both of the layer 3 distribution switches.
+
+<h2>Clarifying the Topology</h2>
+
+Before we get to configuring the SVIs, let's first add more description to our links so that we can easily tell the difference between each kind of link:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%201.png">
+
+<h2>Configuring the SVIs</h2>
+
+Now let's begin the process of configuring the SVIs. On the Distribution-1 switch, login and type <code>configure terminal</code>. Then input the following commands and verify that both SVIs are up:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%203.png">
+
+Let's also enable ip routing on this switch:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%204.png">
+
+Now that we have configured the switch to route between the VLANs, devices on VLANs 10 and 20 should be able to reach each other. Let's test this with a ping:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%205.png">
+
+The ping succeeded (after the first ping timed out due to an ARP Request), meaning that the devices are able to communicate with each other.
+
+Now repeat all of the same configuration steps on the Distribution-2 switch, except changing the ip addresses for the corresponding VLANs:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%206.png">
+
+We can do a similar ping test as well:
+
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%207.png">
+
+And that's it! We configured SVIs for both layer 3 switches and now they can support inter-VLAN routing. During the next part of this project, we will be adding a link between the distribution switches to allow them to communicate with each other.
+
 <h1>Part 4: Routed Ports and Static Routing (Coming 5/7/25)</h1>
 
 <h1>Part 5: EtherChannel and Examining STP (Coming 5/11/25)</h1>
