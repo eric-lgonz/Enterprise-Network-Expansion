@@ -376,7 +376,7 @@ Now that we have verified that the connections work properly, we can review our 
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%209.png">
 
-<h1>Part 3: SVIs (Coming 5/7/25)</h1>
+<h1>Part 3: SVIs</h1>
 
 In this part of the project, we will now be configuring SVIs. An Switched Virtual Interface, or SVI, allows for remote management on switches. It does this by assigning an IP address to a VLAN on the switch, which allows us to now access that virtual interface remotely, and therefore remotely manage the switch.
 
@@ -415,7 +415,19 @@ We can do a similar ping test as well:
 
 And that's it! We configured SVIs for both layer 3 switches and now they can support inter-VLAN routing. During the next part of this project, we will be adding a link between the distribution switches to allow them to communicate with each other.
 
-<h1>Part 4: Routed Ports and Static Routing (Coming 5/7/25)</h1>
+<h1>Part 4: Routed Ports and Static Routing (Coming 5/8/25)</h1>
+
+In this part of the lab, we will be connecting the two distribution switches and configure static routing on them.
+
+<h2>Connecting the Switches</h2>
+
+Similar to earlier in the project, we can connect the switches physically using a copper crossover cable. Let's connect them on the G1/0/23 interface:
+
+_insert image_
+
+<h2>Configuring Routed Ports</h2>
+
+
 
 <h1>Part 5: EtherChannel and Examining STP (Coming 5/11/25)</h1>
 
