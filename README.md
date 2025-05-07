@@ -417,7 +417,7 @@ And that's it! We configured SVIs for both layer 3 switches and now they can sup
 
 <h1>Part 4: Routed Ports and Static Routing (Coming 5/8/25)</h1>
 
-In this part of the lab, we will be connecting the two distribution switches and configure static routing on them.
+In this part of the lab, we will be connecting the two distribution switches, and configure routed ports and static routing on them.
 
 <h2>Connecting the Switches</h2>
 
@@ -425,7 +425,21 @@ Similar to earlier in the project, we can connect the switches physically using 
 
 _insert image_
 
+<h2>Methodology</h2>
+
+Since we will be configuring the link between the switches as a separate Layer 3 network, we will need to use a routed port. This physical interface will be set up to work like a port on a router. This means that no VLANs are associated with it, and that it will also need an IP address.
+
+Why not just use a trunk link?
+
+This is a good question, as we could connect the VLANs together by using a layer 2 trunk link between the switches. However, choosing this option would mean that there would not be as much redundancy and scalability. For example, we would have to use Spanning Tree Protocol, blocking redundant paths while also limiting the total number of layer 2 switches we can have in a row. On the other hand, using a layer 3 link would reduce the risk of loops while also providing scalability as the network can grow larger.
+
+So why would we ever use layer 2 switches if it would always be advantageous to use a layer 3 switch, which has more capabilities?
+
+Money and ease of use. Layer 3 switches have more functionality, so naturally they cost more. Also, for a simple network, you may not need the additional functionality that a layer 3 switch provides, making layer 2 switches a more logical choice.
+
 <h2>Configuring Routed Ports</h2>
+
+Now let's get into how to configure the routed ports. Most layer 3 ports are configured as layer 2 by default. We will need to change them to work as layer 3 ports, which can be done with the <code>no switchport</code> command. The rest of the commands used to configure the interface are similar to how we configured the VLANs.
 
 
 
