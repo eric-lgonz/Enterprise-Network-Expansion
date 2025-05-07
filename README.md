@@ -449,6 +449,7 @@ _insert image_
 We can double check to make sure that switchport is disabled on the switches, as shown below:
 
 _insert image_
+_insert image_
 
 With this, we have made it possible for Distribution-1 to communicate with Distribution-2. However, we have not defined routes to allow each of these switches to communicate with the other switch's VLANs. We will do this through static routing.
 
@@ -464,7 +465,13 @@ Now let's see if PC2 can communicate with PC7 (VLAN 20 to VLAN 40):
 _insert image_
 _insert image_
 
-And it worked! Now our switches can not only provide routing between the VLANs directly connected to it, but they can also provide routing to reach the other VLANs via the new link. In the next section of the lab, we will take a look at EtherChannel and Spanning Tree Protocol.
+And it worked! Now our switches can not only provide routing between the VLANs directly connected to it, but they can also provide routing to reach the other VLANs via the new link.
+
+Lastly, let's add labels to the topology to indicate the SVIs and the new link:
+
+_insert image_
+
+Great, and that's all for this section! In the next part of the project, we will take a look at EtherChannel and Spanning Tree Protocol.
 
 <h1>Part 5: EtherChannel and Examining STP (Coming 5/18/25)</h1>
 
