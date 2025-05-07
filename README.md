@@ -441,12 +441,35 @@ Money and ease of use. Layer 3 switches have more functionality, so naturally th
 
 Now let's get into how to configure the routed ports. Most layer 3 ports are configured as layer 2 by default. We will need to change them to work as layer 3 ports, which can be done with the <code>no switchport</code> command. The rest of the commands used to configure the interface are similar to how we configured the VLANs.
 
+This is the process for configuring both of the distribution switches.
 
+_insert image_
+_insert image_
 
-<h1>Part 5: EtherChannel and Examining STP (Coming 5/11/25)</h1>
+We can double check to make sure that switchport is disabled on the switches, as shown below:
 
-<h1>Part 6: Connecting to the Core (Coming 5/18/25)</h1>
+_insert image_
 
-<h1>Part 7: DHCP (Coming 5/25/25)</h1>
+With this, we have made it possible for Distribution-1 to communicate with Distribution-2. However, we have not defined routes to allow each of these switches to communicate with the other switch's VLANs. We will do this through static routing.
+
+<h2>Static Routing for Remote Networks</h2>
+
+An alternative to static routing is using a dynamic routing protocol. This is useful for when the network grows larger and it is hard to keep track of everything manually. We will configure dynamic routing later, and for now we will configure the routes statically to verify connectivity:
+
+_insert image_
+_insert image_
+
+Now let's see if PC2 can communicate with PC7 (VLAN 20 to VLAN 40):
+
+_insert image_
+_insert image_
+
+And it worked! Now our switches can not only provide routing between the VLANs directly connected to it, but they can also provide routing to reach the other VLANs via the new link. In the next section of the lab, we will take a look at EtherChannel and Spanning Tree Protocol.
+
+<h1>Part 5: EtherChannel and Examining STP (Coming 5/18/25)</h1>
+
+<h1>Part 6: Connecting to the Core (Coming 5/25/25)</h1>
+
+<h1>Part 7: DHCP (Coming 6/1/25)</h1>
 
 
