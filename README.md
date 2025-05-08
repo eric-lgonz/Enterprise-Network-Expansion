@@ -25,7 +25,7 @@ Credit: Rick Graziani, professor at University of California - Santa Cruz and Cu
 
 In this section, we will be starting off with the existing network topology below and will be adding the two LANs highlighted in blue.
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%201.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%201.png">
 
 Let's start by setting up the devices, configuring their cabling and IP addressing. Then we can make sure the connections work by pinging the devices.
 
@@ -33,13 +33,13 @@ Let's start by setting up the devices, configuring their cabling and IP addressi
 
 Some of the devices need their power supply to be set up before connecting them, such as the multilayer switches and the IP phone. We can connect each multilayer switch to power by clicking on the device, and then dragging the AC power adapter to them:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%202.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%203.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%203.png">
 
 We can do the same for the IP phone:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%204.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%205.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%205.png">
 
 <h2>Cabling</h2>
 
@@ -47,17 +47,17 @@ Now let's connect all the devices together with cables, except for the laptops, 
 
 First click the connections icon on the bottom (the lightning bolt), and select on the type of cable you want to use:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%206.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%207.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%207.png">
 
 Then bring the cable to your starting device, choose the port to connect it on, and then do the same for the device with the other end of the cable:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%208.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%209.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%208.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%209.png">
 
 Afterwards, the connection will look like this:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2010.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2010.png">
 
 Now I'll configure the rest of the connections according to this table:
 
@@ -99,7 +99,7 @@ From Device | From Port | Cable Type | To Device | To Port
 
 After all of the cabling, this is what the topology looks like:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2011.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2011.png">
 
 <h2>IP Addressing</h2>
 
@@ -107,7 +107,7 @@ For the IP addressing, we can manually configure each device. Normally, this wou
 
 First click on the device, then go to the config tab. From there, click on settings, which is where you can manually configure the IP address settings:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2012.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2012.png">
 
 Now I'll configure the rest of the IPv4 address settings according to this table:
 
@@ -136,20 +136,20 @@ Device | IPv4 Address | IPv4 Network | Default Gateway | DNS Server
 
 Now that the IP addressing is complete, we need to configure Service Set Identifiers (SSIDs) on the access points so that the wireless laptops can connect. Let's set Access Point0's display name and SSID to "Guest-0" and Access Point1's display name and SSID to "Guest-1":
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2013.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2014.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2013.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2014.png">
 
 For the laptops, we are going to connect them to the network wirelessly. To do that, they need to have a wireless network interface card (NIC) instead of their wired NIC. We can do this by powering off each laptop, removing the wired NIC, installing the wireless NIC, and then powering back on the laptop:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2015.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2016.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2017.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2018.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2015.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2016.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2017.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2018.png">
 
 Once that is done for both laptops, we can set the corresponding SSID in config tab under the wireless interface. This will allow the laptops to "associate" with their respective access points:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2019.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2020.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2019.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2020.png">
 
 Lastly, we can now configure all of the IPv4 address settings for the laptops, using the same method we did for the other end devices:
 
@@ -168,16 +168,16 @@ We can make sure everything was configured properly by testing if devices in the
 
 Let's do a ping from PC2 to PC3, which should work because they are on the same network. We can do this by clicking on PC2, navigating to the Desktop tab, and clicking on Command Prompt. Then we can enter <code>ping 10.20.1.101</code>:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2021.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2022.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2021.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2022.png">
 
 Now let's do a ping between devices on different networks. For example, PC0 should not be able to ping PC3:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2023.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2023.png">
 
 Now that we have verified that the devices are configured properly, that wraps up Part 1 of this project. Let's take a look at our new network topology:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%201%20-%2024.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%201%20-%2024.png">
 
 <h1>Part 2: VLANs and Trunks</h1>
 
@@ -187,12 +187,12 @@ For part 2, we will be focusing on configuring VLANs and trunks in our new switc
 
 First, let's change the display names on the switches to make the topology more clear. Click on the display name for each switch and set it to match the screenshot below:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%201.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%201.png">
 Note: I disabled the device model names by going to <code>Options -> Preferences -> Show Device Model Labels</code><br><br>
 
 Now, let's use the command line interface (CLI) to set up each switch with security and access settings. This is essential to begin the process of setting up VLANs. On each individual switch (both distribution and access switches) we can use the commands shown below to set up their settings. Be sure to change the hostname field to match the display name of the switch:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%202.png">
 Note: The passwords I chose are very insecure, as I chose them for simplicity. They should not be used outside of a contained lab setting.
 
 Let's dive into what each of those commands does:
@@ -220,7 +220,7 @@ After completing this process for all of the switches, we can start to add the V
 
 By default, all ports are on the same VLAN, VLAN 1. This is the default VLAN, as you can see below on the access switch:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%203.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%203.png">
 
 Each department in our network will get their own VLAN, and we will set these up for each switch.
 
@@ -245,9 +245,9 @@ VLAN ID | Name | 10.vlan.0.0/16
 
 We can enter the following commands on each switch to set up these VLANs:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%204.png">
 Don't forget to run <code>copy run start</code> to save the config!<br><br>
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%205.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%205.png">
 
 Let's take a look at what these commands do:
 - <code>vlan &lt;vlan ID&gt;</code> - This puts us into the configuration mode for a specific VLAN ID. Note that even without this command, a VLAN will still be created if an interface is configured to be a member of that VLAN ID.
@@ -302,7 +302,7 @@ Here's what each command is doing:
 
 As you can see, the Fa0/5 port was assigned to VLAN 10 on Access-1-1.
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%206.png">
 
 <h2>Establishing Trunks</h2>
 
@@ -366,15 +366,15 @@ Let's make sure that the network is still connected properly by sending pings be
 
 Ping from PC0 to PC1:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%207.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%207.png">
 
 Ping from PC2 to PC3:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%208.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%208.png">
 
 Now that we have verified that the connections work properly, we can review our network topology and move on to Part 3!
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%202%20-%209.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%202%20-%209.png">
 
 <h1>Part 3: SVIs</h1>
 
@@ -386,32 +386,32 @@ We will be configuring SVIs for both of the layer 3 distribution switches.
 
 Before we get to configuring the SVIs, let's first add more description to our links so that we can easily tell the difference between each kind of link:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%201.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%201.png">
 
 <h2>Configuring the SVIs</h2>
 
 Now let's begin the process of configuring the SVIs. On the Distribution-1 switch, login and type <code>configure terminal</code>. Then input the following commands and verify that both SVIs are up:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%202.png">
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%203.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%203.png">
 
 Let's also enable ip routing on this switch:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%204.png">
 
 Now that we have configured the switch to route between the VLANs, devices on VLANs 10 and 20 should be able to reach each other. Let's test this with a ping:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%205.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%205.png">
 
 The ping succeeded (after the first ping timed out due to an ARP Request), meaning that the devices are able to communicate with each other.
 
 Now repeat all of the same configuration steps on the Distribution-2 switch, except changing the ip addresses for the corresponding VLANs:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%206.png">
 
 We can do a similar ping test as well:
 
-<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion-and-VLAN-Implementation/blob/main/assets/Part%203%20-%207.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%203%20-%207.png">
 
 And that's it! We configured SVIs for both layer 3 switches and now they can support inter-VLAN routing. During the next part of this project, we will be adding a link between the distribution switches to allow them to communicate with each other.
 
@@ -423,7 +423,7 @@ In this part of the lab, we will be connecting the two distribution switches, an
 
 Similar to earlier in the project, we can connect the switches physically using a copper crossover cable. Let's connect them on the G1/0/23 interface:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%201.png">
 
 <h2>Methodology</h2>
 
@@ -443,13 +443,13 @@ Now let's get into how to configure the routed ports. Most layer 3 ports are con
 
 This is the process for configuring both of the distribution switches.
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%203.png">
 
 We can double check to make sure that switchport is disabled on the switches, as shown below:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%205.png">
 
 With this, we have made it possible for Distribution-1 to communicate with Distribution-2. However, we have not defined routes to allow each of these switches to communicate with the other switch's VLANs. We will do this through static routing.
 
@@ -457,19 +457,19 @@ With this, we have made it possible for Distribution-1 to communicate with Distr
 
 An alternative to static routing is using a dynamic routing protocol. This is useful for when the network grows larger and it is hard to keep track of everything manually. We will configure dynamic routing later, and for now we will configure the routes statically to verify connectivity:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%207.png">
 
 Now let's see if PC2 can communicate with PC7 (VLAN 20 to VLAN 40):
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%208.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%209.png">
 
 And it worked! Now our switches can not only provide routing between the VLANs directly connected to it, but they can also provide routing to reach the other VLANs via the new link.
 
 Lastly, let's add labels to the topology to indicate the SVIs and the new link:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%2010.png">
 
 Great, and that's all for this section! In the next part of the project, we will take a look at EtherChannel and Spanning Tree Protocol.
 
