@@ -433,7 +433,7 @@ We can do a similar ping test as well:
 
 And that's it! We configured SVIs for both layer 3 switches and now they can support inter-VLAN routing. During the next part of this project, we will be adding a link between the distribution switches to allow them to communicate with each other.
 
-<h1>Part 4: Routed Ports and Static Routing (Coming 5/8/25)</h1>
+<h1>Part 4: Routed Ports and Static Routing</h1>
 
 In this part of the lab, we will be connecting the two distribution switches, and configure routed ports and static routing on them.
 
@@ -491,7 +491,54 @@ Lastly, let's add labels to the topology to indicate the SVIs and the new link:
 
 Great, and that's all for this section! In the next part of the project, we will take a look at EtherChannel and Spanning Tree Protocol.
 
-<h1>Part 5: EtherChannel and Examining STP (Coming 5/18/25)</h1>
+<h1>Part 5: EtherChannel and Examining STP</h1>
+
+In this part of the lab, we will be looking at Link Aggregation, specifically EtherChannel. Link Aggregation is a protocol that allows for the bundling of several physical links to be combined into one logical link. This enhances redundancy and higher bandwidth since all of the link's capacities get combined. Cisco has their own version of Link Aggregation, called EtherChannel, which is what we will be using here. We will also look at EtherChannel interacts with STP.
+
+It is important to note that there are two primary protocols that handle Link Aggregation. There is Link Aggregation Control Protocol (LACP), which is an IEEE standard, and Port Aggregation Protocol (PAgP), which is a Cisco proprietary protocol that is similar to LACP. Both of these protocols dynamically manage the links and ensures that the links are properly configured. There is also Static Persistence, which is configuring EtherChannel manually without using LACP or PAgP. While this is a simple approach, it can lead to many configuration problems, especially on a larger network.
+
+<h2>Configuring Layer 2 EtherChannel</h2>
+
+In our current configuration, Spanning Tree Protocol (STP) blocks one of the ports to prevent loops. This is represented by an amber light on the port. With EtherChannel, the bundled links will be treated as one link by STP, which means that all ports connecting switches will be in the forwarding state, and thus not have an amber light.
+
+On all of the access switches, we can use the following commands to configure EtherChannel:
+
+_insert image_
+
+Let's break down what these commands do:
+- <code>port-channel load-balance src-dst-ip</code> - This sets up the load-balancing for the links on the EtherChannel. This is necessary because the switch needs a way to decide which port to use to forward a frame, so here we tell it to take the source and destination IP addresses into account.
+- <code>interface range fa 0/1-2</code> - This puts us in configuration mode for this range of interfaces, allowing us to configure both Fa 0/1 and Fa 0/2 at the same time.
+- <code>shutdown</code> - This shuts down the interfaces, which is essential because we don't want them to be active while we set up LACP.
+- <code>channel-protocol lacp</code> - This sets up LACP and tells the switch that this is the protocol that we want to use.
+- <code>channel-group 1 mode active</code> - This assigns the interfaces to channel-group 1 and allows the interface to negotiate LACP configuration with other switches.
+
+It is important to keep in mind that before bringing each switch back online, it is important to have both connected switches be configured with the set of EtherChannel commands. Otherwise, we may run into inconsistencies and synchronization issues. With that being said, let's bring each pair of connected switches back online with the following commands:
+
+_insert image_
+
+A few minutes after configuring all eight access switches, you will see all the switch lights turn green. This means that the configuration worked and all of the switch ports are in the forwarding state.
+
+_insert image_
+
+Lastly, there is one more step we need to take. We had previously configured particular VLANS to traverse the interfaces. This property is not inherited by the Port-channel1 interface, despite both of the physical interfaces being configured with them. We can remedy this by simply using the <code>switchport trunk allowed vlan</code> command:
+
+_insert image_
+
+<h2>Verifying Layer 2 EtherChannel</h2>
+
+We can verify that EtherChannel has been configured on the switch by using the <code>show etherchannel</code>, <show etherchannel summary</code>, <code>show etherchannel port-channel</code>, and <code>show etherchannel load-balance</code> commands:
+
+_insert image_
+_insert image_
+_insert image_
+_insert image_
+
+<h2>Configuring Layer 3 EtherChannel</h2>
+
+Now we will be going through a similar process for the layer 3 switches. To start, we need to add a second routed port between the distribution switches, otherwise there would be no links to aggregate.
+
+
+
 
 <h1>Part 6: Connecting to the Core (Coming 5/25/25)</h1>
 
