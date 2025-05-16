@@ -551,7 +551,51 @@ We can now re-enable the interfaces by using the <code>no shutdown</code> comman
 
 And that's all for this part of the project! In the next section, we will be connecting our switch block to the core network.
 
-<h1>Part 6: Connecting to the Core (Coming 5/25/25)</h1>
+<h1>Part 6: Connecting to the Core</h1>
+
+In this section of the project, we will be connecting our distribution switches to the core switches and give them valid ip addresses on the network. Then we will remove the static routing we previously configured and replace it with Open Shortest Path First (OSPF), a dynamic routing protocol.
+
+<h2>Physical Connections</h2>
+
+Let's make the following connections using copper cross-over cable:
+- Distribution-1's G1/0/10 to Core-3's G1/0/10 interface
+- Distribution-1's G1/0/11 to Core-4's G1/0/10 interface
+- Distribution-2's G1/0/10 to Core-3's G1/0/11 interface
+- Distribution-2's G1/0/11 to Core-4's G1/0/11 interface
+
+After making the connections the topology should look like this:
+
+_insert image_
+
+And you can check the interface status to ensure that they are connected:
+
+_insert image_
+
+<h2>Configuring IPv4 Addressing</h2>
+
+Now, we will configure IPv4 addressing on the distribution switches. The addressing for Core-3 and Core-4 have already been configured, so we don't have to touch those. The addresses we will use will be part of /30 networks, in an effort to conserve IP addresses. This means that the network only has four total IP addresses, with two usable ones (two are reserved for the network and broadcast addresses). The core switches have already been assigned the first usable address in the subnet, so the distribution switches will be assigned the second usable address in the subnet.
+
+**Distribution-1:** <br>
+G1/0/10 -> 10.200.100.6/30 will connect to Core-3 G 1/0/10 -> 10.200.100.5 <br>
+G1/0/11 -> 10.200.100.10/30 will connect to Core-4 G 1/0/11 -> 10.200.100.9
+
+**Distribution-2:** <br>
+G1/0/10 -> 10.200.100.14/30 will connect to Core-3 G 1/0/10 -> 10.200.100.13 <br>
+G1/0/11 -> 10.200.100.18/30 will connect to Core-4 G 1/0/11 -> 10.200.100.17
+
+The commands for configuring the IP addressing are the same as what we have been using throughout this project:
+
+_insert image_
+_insert image_
+
+We can verify the configuration by making sure the status of the links are up and they can ping the other switches:
+
+_insert image_
+_insert image_
+
+*Note, the first probe fails for each ping due to an ARP Request being sent out*
+
+
 
 <h1>Part 7: DHCP (Coming 6/1/25)</h1>
 
