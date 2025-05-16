@@ -537,7 +537,7 @@ We can verify that EtherChannel has been configured on the switch by using the <
 
 Now we will be going through a similar process for the layer 3 switches. To start, we need to add a second routed port between the distribution switches, otherwise there would be no links to aggregate.
 
-To do this, let's first shut down both ports on the switches, as this is best practice. Then we can add another copper cross-over cable between the switches on their 1/0/24 ports:
+To do this, let's first shut down both ports on the switches, as this is best practice. Then we can add another copper crossover cable between the switches on their 1/0/24 ports:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%209.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2010.png">
@@ -553,17 +553,17 @@ And that's all for this part of the project! In the next section, we will be con
 
 <h1>Part 6: Connecting to the Core</h1>
 
-In this section of the project, we will be connecting our distribution switches to the core switches and give them valid ip addresses on the network. Then we will remove the static routing we previously configured and replace it with Open Shortest Path First (OSPF), a dynamic routing protocol.
+In this section of the project, we will be connecting our distribution switches to the core switches and give them valid IP addresses on the network. Then we will remove the static routing we previously configured and replace it with Open Shortest Path First (OSPF), a dynamic routing protocol.
 
 <h2>Physical Connections</h2>
 
-Let's make the following connections using copper cross-over cable:
+Let's make the following connections using copper crossover cable:
 - Distribution-1's G1/0/10 to Core-3's G1/0/10 interface
 - Distribution-1's G1/0/11 to Core-4's G1/0/10 interface
 - Distribution-2's G1/0/10 to Core-3's G1/0/11 interface
 - Distribution-2's G1/0/11 to Core-4's G1/0/11 interface
 
-After making the connections the topology should look like this:
+After making the connections, the topology should look like this:
 
 _insert image_
 
@@ -588,7 +588,7 @@ The commands for configuring the IP addressing are the same as what we have been
 _insert image_
 _insert image_
 
-We can verify the configuration by making sure that the status of the links are up and that they are reachable by the switch:
+We can verify the configuration by making sure that the statuses of the links are up and that they are reachable by the switch:
 
 _insert image_
 _insert image_
@@ -655,7 +655,7 @@ And with that configured, any PC in the topology should be able to reach each ot
 _insert image_
 _insert image_
 
-And that's all for this section! In the next part, we will be configuring DHCP to provide IP addressing for our end devices.
+And that's all for this section! In the next part, we will configure DHCP to provide IP addressing for our end devices.
 
 <h1>Part 7: DHCP (Coming 6/1/25)</h1>
 
