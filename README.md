@@ -503,7 +503,7 @@ In our current configuration, Spanning Tree Protocol (STP) blocks one of the por
 
 On all of the access switches, we can use the following commands to configure EtherChannel:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%201.png">
 
 Let's break down what these commands do:
 - <code>port-channel load-balance src-dst-ip</code> - This sets up the load-balancing for the links on the EtherChannel. This is necessary because the switch needs a way to decide which port to use to forward a frame, so here we tell it to take the source and destination IP addresses into account.
@@ -514,24 +514,24 @@ Let's break down what these commands do:
 
 It is important to keep in mind that before bringing each switch back online, it is important to have both connected switches be configured with the set of EtherChannel commands. Otherwise, we may run into inconsistencies and synchronization issues. With that being said, let's bring each pair of connected switches back online with the following commands:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%202.png">
 
 A few minutes after configuring all eight access switches, you will see all the switch lights turn green. This means that the configuration worked and all of the switch ports are in the forwarding state.
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%203.png">
 
 Lastly, there is one more step we need to take. We had previously configured particular VLANS to traverse the interfaces. This property is not inherited by the Port-channel1 interface, despite both of the physical interfaces being configured with them. We can remedy this by simply using the <code>switchport trunk allowed vlan</code> command:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%204.png">
 
 <h2>Verifying Layer 2 EtherChannel</h2>
 
 We can verify that EtherChannel has been configured on the switch by using the <code>show etherchannel</code>, <show etherchannel summary</code>, <code>show etherchannel port-channel</code>, and <code>show etherchannel load-balance</code> commands:
 
-_insert image_
-_insert image_
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%205.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%206.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%207.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%208.png">
 
 <h2>Configuring Layer 3 EtherChannel</h2>
 
@@ -539,13 +539,13 @@ Now we will be going through a similar process for the layer 3 switches. To star
 
 To do this, let's first shut down both ports on the switches, as this is best practice. Then we can add another copper cross-over cable between the switches on their 1/0/24 ports:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%209.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2010.png">
 
 Now we can use the following commands to configure the distribution switches:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2011.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2012.png">
 
 And now we can re-enable the interfaces by using the <code>no shutdown</code> command. On Packet Tracer, the lights might show up as amber instead of green, but this is just a visual bug.
 
