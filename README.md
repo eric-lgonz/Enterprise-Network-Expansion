@@ -493,7 +493,7 @@ Great, and that's all for this section! In the next part of the project, we will
 
 <h1>Part 5: EtherChannel and Examining STP</h1>
 
-In this part of the lab, we will be looking at Link Aggregation, specifically EtherChannel. Link Aggregation is a protocol that allows for the bundling of several physical links to be combined into one logical link. This enhances redundancy and higher bandwidth since all of the link's capacities get combined. Cisco has their own version of Link Aggregation, called EtherChannel, which is what we will be using here. We will also look at EtherChannel interacts with STP.
+In this part of the project, we will be looking at Link Aggregation, specifically EtherChannel. Link Aggregation is a protocol that allows for the bundling of several physical links to be combined into one logical link. This enhances redundancy and higher bandwidth since all of the link's capacities get combined. Cisco has their own version of Link Aggregation, called EtherChannel, which is what we will be using here. We will also look at EtherChannel interacts with STP.
 
 It is important to note that there are two primary protocols that handle Link Aggregation. There is Link Aggregation Control Protocol (LACP), which is an IEEE standard, and Port Aggregation Protocol (PAgP), which is a Cisco proprietary protocol that is similar to LACP. Both of these protocols dynamically manage the links and ensures that the links are properly configured. There is also Static Persistence, which is configuring EtherChannel manually without using LACP or PAgP. While this is a simple approach, it can lead to many configuration problems, especially on a larger network.
 
@@ -537,8 +537,19 @@ _insert image_
 
 Now we will be going through a similar process for the layer 3 switches. To start, we need to add a second routed port between the distribution switches, otherwise there would be no links to aggregate.
 
+To do this, let's first shut down both ports on the switches, as this is best practice. Then we can add another copper cross-over cable between the switches on their 1/0/24 ports:
 
+_insert image_
+_insert image_
 
+Now we can use the following commands to configure the distribution switches:
+
+_insert image_
+_insert image_
+
+And now we can re-enable the interfaces by using the <code>no shutdown</code> command. On Packet Tracer, the lights might show up as amber instead of green, but this is just a visual bug.
+
+And that's all for this part of the project! In the next section, we will be connecting our switch block to the core network.
 
 <h1>Part 6: Connecting to the Core (Coming 5/25/25)</h1>
 
