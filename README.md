@@ -565,11 +565,11 @@ Let's make the following connections using copper crossover cable:
 
 After making the connections, the topology should look like this:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%201.png">
 
 And you can check the interface status to ensure that they are connected:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%202.png">
 
 <h2>Configuring IPv4 Addressing</h2>
 
@@ -585,13 +585,13 @@ G1/0/11 -> 10.200.100.18/30 will connect to Core-4 G 1/0/11 -> 10.200.100.17
 
 The commands for configuring the IP addressing are the same as what we have been using throughout this project:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%203.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%204.png">
 
 We can verify the configuration by making sure that the statuses of the links are up and that they are reachable by the switch:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%205.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%206.png">
 
 *Note, the first probe fails for each ping due to an ARP Request being sent out*
 
@@ -601,8 +601,8 @@ We previously configured static routing so that the networks on the opposing dis
 
 Let's remove the current static routes:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%207.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%208.png">
 
 Now let's enable OSPF on the switches:
 
@@ -652,8 +652,8 @@ Now let's enable OSPF on the switches:
 
 And with that configured, any PC in the topology should be able to reach each other. We can test this by doing a couple pings from PC0:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%209.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%206%20-%2010.png">
 
 And that's all for this section! In the next part, we will configure DHCP to provide IP addressing for our end devices.
 
