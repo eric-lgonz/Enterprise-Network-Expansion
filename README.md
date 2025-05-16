@@ -588,14 +588,74 @@ The commands for configuring the IP addressing are the same as what we have been
 _insert image_
 _insert image_
 
-We can verify the configuration by making sure the status of the links are up and they can ping the other switches:
+We can verify the configuration by making sure that the status of the links are up and that they are reachable by the switch:
 
 _insert image_
 _insert image_
 
 *Note, the first probe fails for each ping due to an ARP Request being sent out*
 
+<h2>Removing Static Routes and Adding OSPF</h2>
 
+We previously configured static routing so that the networks on the opposing distribution switches could reach each other. Now we will remove those static routes and configure OPSF, a dynamic routing protocol, to handle the routing for non-directly connected networks.
+
+Let's remove the current static routes:
+
+_insert image_
+_insert image_
+
+Now let's enable OSPF on the switches:
+
+**Distribution-1 Config:** <br>
+<code>router ospf 1</code> <br>
+<code>router-id 1.0.0.0</code> <br>
+<code>auto-cost reference-bandwidth 10000</code> <br>
+<code>network 10.0.0.0 0.255.255.255 area 0</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/10</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/11</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/23</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/24</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>end</code> <br>
+<code>clear ip ospf process</code> <br>
+<code>yes</code> <br>
+
+**Distribution-2 Config:** <br>
+<code>router ospf 1</code> <br>
+<code>router-id 2.0.0.0</code> <br>
+<code>auto-cost reference-bandwidth 10000</code> <br>
+<code>network 10.0.0.0 0.255.255.255 area 0</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/10</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/11</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/23</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>interface gig 1/0/24</code> <br>
+<code>ip ospf network point-to-point</code> <br>
+<code>exit</code> <br>
+<code>end</code> <br>
+<code>clear ip ospf process</code> <br>
+<code>yes</code> <br>
+
+And with that configured, any PC in the topology should be able to reach each other. We can test this by doing a couple pings from PC0:
+
+_insert image_
+_insert image_
+
+And that's all for this section! In the next part, we will be configuring DHCP to provide IP addressing for our end devices.
 
 <h1>Part 7: DHCP (Coming 6/1/25)</h1>
 
