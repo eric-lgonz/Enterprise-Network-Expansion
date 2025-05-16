@@ -435,7 +435,7 @@ And that's it! We configured SVIs for both layer 3 switches and now they can sup
 
 <h1>Part 4: Routed Ports and Static Routing</h1>
 
-In this part of the lab, we will be connecting the two distribution switches, and configure routed ports and static routing on them.
+In this part of the lab, we will connect the two distribution switches, and configure routed ports and static routing on them.
 
 <h2>Connecting the Switches</h2>
 
@@ -453,7 +453,7 @@ This is a good question, as we could connect the VLANs together by using a layer
 
 So why would we ever use layer 2 switches if it would always be advantageous to use a layer 3 switch, which has more capabilities?
 
-Money and ease of use. Layer 3 switches have more functionality, so naturally they cost more. Also, for a simple network, you may not need the additional functionality that a layer 3 switch provides, making layer 2 switches a more logical choice.
+Cost and simplicity. Layer 3 switches have more functionality, so naturally they cost more. Also, for a simple network, you may not need the additional functionality that a layer 3 switch provides, making layer 2 switches a more logical choice.
 
 <h2>Configuring Routed Ports</h2>
 
@@ -464,7 +464,7 @@ This is the process for configuring both of the distribution switches.
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%202.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%203.png">
 
-We can double check to make sure that switchport is disabled on the switches, as shown below:
+We can double-check to make sure that switchport is disabled on the switches, as shown below:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%204.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%205.png">
@@ -489,13 +489,13 @@ Lastly, let's add labels to the topology to indicate the SVIs and the new link:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%204%20-%2010.png">
 
-Great, and that's all for this section! In the next part of the project, we will take a look at EtherChannel and Spanning Tree Protocol.
+That wraps up this section! In the next part of the project, we will take a look at EtherChannel and how it interacts with the Spanning Tree Protocol.
 
 <h1>Part 5: EtherChannel and Examining STP</h1>
 
-In this part of the project, we will be looking at Link Aggregation, specifically EtherChannel. Link Aggregation is a protocol that allows for the bundling of several physical links to be combined into one logical link. This enhances redundancy and higher bandwidth since all of the link's capacities get combined. Cisco has their own version of Link Aggregation, called EtherChannel, which is what we will be using here. We will also look at EtherChannel interacts with STP.
+In this part of the project, we will be configuring Link Aggregation, specifically EtherChannel. Link Aggregation is a protocol that allows for the bundling of several physical links to be combined into one logical link. This enhances redundancy and higher bandwidth, since the capacities of all links are combined. Cisco has their own version of Link Aggregation, called EtherChannel, which is what we will be using here. We will also look at how EtherChannel interacts with STP.
 
-It is important to note that there are two primary protocols that handle Link Aggregation. There is Link Aggregation Control Protocol (LACP), which is an IEEE standard, and Port Aggregation Protocol (PAgP), which is a Cisco proprietary protocol that is similar to LACP. Both of these protocols dynamically manage the links and ensures that the links are properly configured. There is also Static Persistence, which is configuring EtherChannel manually without using LACP or PAgP. While this is a simple approach, it can lead to many configuration problems, especially on a larger network.
+It is important to note that there are two primary protocols that handle Link Aggregation. There is Link Aggregation Control Protocol (LACP), which is an IEEE standard, and Port Aggregation Protocol (PAgP), which is a Cisco proprietary protocol that is similar to LACP. Both of these protocols dynamically manage the links and ensure that the links are properly configured. There is also Static Persistence, which involves configuring EtherChannel manually without using LACP or PAgP. While this is a simple approach, it can lead to many configuration problems, especially on a larger network.
 
 <h2>Configuring Layer 2 EtherChannel</h2>
 
@@ -520,13 +520,13 @@ A few minutes after configuring all eight access switches, you will see all the 
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%203.png">
 
-Lastly, there is one more step we need to take. We had previously configured particular VLANS to traverse the interfaces. This property is not inherited by the Port-channel1 interface, despite both of the physical interfaces being configured with them. We can remedy this by simply using the <code>switchport trunk allowed vlan</code> command:
+Lastly, there is one more step we need to take. We had previously configured particular VLANs to traverse the interfaces. This property is not inherited by the Port-channel1 interface, despite both of the physical interfaces being configured with them. We can remedy this by simply using the <code>switchport trunk allowed vlan</code> command:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%204.png">
 
 <h2>Verifying Layer 2 EtherChannel</h2>
 
-We can verify that EtherChannel has been configured on the switch by using the <code>show etherchannel</code>, <show etherchannel summary</code>, <code>show etherchannel port-channel</code>, and <code>show etherchannel load-balance</code> commands:
+We can verify that EtherChannel has been configured on the switch by using the <code>show etherchannel</code>, <code>show etherchannel summary</code>, <code>show etherchannel port-channel</code>, and <code>show etherchannel load-balance</code> commands:
 
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%205.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%206.png">
@@ -547,7 +547,7 @@ Now we can use the following commands to configure the distribution switches:
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2011.png">
 <img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%205%20-%2012.png">
 
-And now we can re-enable the interfaces by using the <code>no shutdown</code> command. On Packet Tracer, the lights might show up as amber instead of green, but this is just a visual bug.
+We can now re-enable the interfaces by using the <code>no shutdown</code> command. In Packet Tracer, the lights may appear amber instead of green, but this is just a visual bug.
 
 And that's all for this part of the project! In the next section, we will be connecting our switch block to the core network.
 
