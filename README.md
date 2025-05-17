@@ -712,3 +712,26 @@ Enable the DHCP service by turning it on:
 
 <code>Service: On</code>
 
+Since the DHCP service is now on, let's select a few PCs to configure for DHCP addressing. I chose PC0, PC4, PC5, and PC9. We can change their configuration easily by clicking on the device, going to the config tab, navigating to FastEthernet0, and selecting DHCP under IP Configuration. Make sure to change the display name of the device so you can tell at a glance that you configured it with DHCP. For example, I renamed PC0 to 10.10.1.DHCP/24.
+
+Notice how all of these devices were given an IP address that starts with 169.254.x.x. These are known as Automatic Private IP Addressing (APIPA) addresses. They are given to devices when they fail to obtain an IP address from a DHCP server. So why did our IP address assignment with DHCP fail? 
+
+Our devices weren't able to get IP addresses from the DHCP server because they weren't able to connect to it. The DHCP discover messages never reached the server because the two devices are on different broadcast domains. Due to this, we need to implement another DHCP technology, DHCP relay.
+
+<h2>DHCP Relay</h2>
+
+DHCP relay is a mechanism that allows routers to relay DHCP broaadcast requests from a client on one network to a DHCP server on another network. This is done by configuring an ip helper-address, which converts the broadcast on one network into a unicast to the DHCP server. This ip helper-address is configured on the layer 3 switch or router that serves as the default gateway for the client device. We will configure this for all VLANs on Distribution-1 and Distribution-2:
+
+_insert image_
+_insert image_
+
+After making these changes on the distribution switches, you can now receive a DHCP assigned IP address on the end devices:
+
+_insert image_
+
+<h2>RSTP</h2>
+
+Rapid Spanning Tree Protocol (RSTP) is
+
+
+
