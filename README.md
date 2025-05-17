@@ -659,4 +659,56 @@ And that's all for this section! In the next part, we will configure DHCP to pro
 
 <h1>Part 7: DHCP (Coming 6/1/25)</h1>
 
+In this section of the project, we will be configuring DHCP, DHCP Relay, RSTP, PortFast, and BPDU Guard. This may seem overwhelming, but I'll go through it step-by-step and explain what everything is and how it all works.
+
+<h2>Configuring SVIs for VoIP and WLAN Networks</h2>
+
+In order to configure the DHCP process, we first need to make sure that IP address assignment is supported for all clients in our network. We previously configured Switched Virtual Interfaces (SVIs) in a previous section, but we didn't do so for our Voice over Internet Protocol (VoIP) and Wireless Local Area Network (WLAN) devices. Setting these SVIs up enables them to be the default gateway for these devices, allowing them to connect to other devices on the enterprise network, thus enabling them to be eligible for automatic IP addressing.
+
+Here are the commands for configuring the SVIs on the distribution switches:
+
+_insert image_
+_insert image_
+
+<h2>Configuring the DHCP Server</h2>
+
+Before we configure the DHCP server, let's first go over what DHCP is. DHCP stands for Dynamic Host Configuration Protocol, and it automatically assigns IP addresses to devices on a network. It also sends end devices other important data about the network, such as the IP address of the default gateway. DHCP uses a client-server model, where the clients request addressing information and the server leases it out. So to begin the process of using DHCP, let's start by configuring the server to recognize the several networks in our new switch block.
+
+Our DHCP server is the device with the IP address of 10.2.1.10/24. We can add server pools for each VLAN. These server pools will define many parameters, such as the default gateway, DNS server, and the assignable IP addresses for the network. Click on the 10.2.1.10/24 device, and then go to the <code>Services</code> tab and select <code>DHCP</code>. There is an existing server pool automatically created by Packet Tracer which cannot be edited, so let's put that one in the parking-lot VLAN:
+
+<code>Default Gateway</code> to <code>0.0.0.0</code><br>
+<code>DNS Server</code> to <code>0.0.0.0</code><br>
+<code>Start IP Address</code> to <code>10.255.0.0</code><br>
+<code>Maximum Number of Users</code> to <code>0</code><br>
+<code>Save</code>
+
+Now let's add the other server pools:
+
+Pool Name | Default Gateway | DNS Server | Start Address | Subnet Mask | Max Users |
+|:-------:|:---------------:|:----------:|:-------------:|:-----------:|:---------:|
+| serverPool | 0.0.0.0 | 0.0.0.0 | 10.10.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN10 | 10.10.1.1 | 10.2.1.10 | 10.10.1.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN20 | 10.20.1.1 | 10.2.1.10 | 10.20.1.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN30 | 10.30.2.1 | 10.2.1.10 | 10.30.2.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN40 | 10.40.2.1 | 10.2.1.10 | 10.40.2.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN50 | 10.50.3.1 | 10.2.1.10 | 10.50.3.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN60 | 10.60.3.1 | 10.2.1.10 | 10.60.3.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN70 | 10.70.4.1 | 10.2.1.10 | 10.70.4.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN80 | 10.80.4.1 | 10.2.1.10 | 10.80.4.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN101 | 10.101.0.1 | 10.2.1.10 | 10.101.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN102 | 10.102.0.1 | 10.2.1.10 | 10.102.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN103 | 10.103.0.1 | 10.2.1.10 | 10.103.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN104 | 10.104.0.1 | 10.2.1.10 | 10.104.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN121 | 10.121.0.1 | 10.2.1.10 | 10.121.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN122 | 10.122.0.1 | 10.2.1.10 | 10.122.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN123 | 10.123.0.1 | 10.2.1.10 | 10.123.0.150 | 255.255.255.0 | 100 |
+| serverPool-VLAN124 | 10.124.0.1 | 10.2.1.10 | 10.124.0.150 | 255.255.255.0 | 100 |
+
+After adding all of the server pools, the table should look like this:
+
+_insert image_
+
+Enable the DHCP service by turning it on:
+
+<code>Service: On</code>
 
