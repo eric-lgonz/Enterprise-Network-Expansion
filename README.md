@@ -9,7 +9,7 @@ resilient network growth
 - Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a
 multi-layer enterprise environment
 
-This project will be split into 7 parts, with a new part being uploaded each week until 6/1/25. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+This project will be split into 8 parts, with a new part being uploaded each week until 5/18/25. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
 
 Credit: Rick Graziani, professor at University of California - Santa Cruz and Curriculum Engineering Team Member at Cisco, created the idea for this lab that uses Packet Tracer. My project shown here is a write up that demostrates my knowledge of the lab, with my own adjustments in its implementation.
 
@@ -657,7 +657,7 @@ And with that configured, any PC in the topology should be able to reach each ot
 
 And that's all for this section! In the next part, we will configure DHCP to provide IP addressing for our end devices.
 
-<h1>Part 7: DHCP (Coming 6/1/25)</h1>
+<h1>Part 7: DHCP</h1>
 
 In this section of the project, we will be configuring DHCP, DHCP Relay, RSTP, PortFast, and BPDU Guard. This may seem overwhelming, but I'll go through it step-by-step and explain what everything is and how it all works.
 
@@ -672,9 +672,9 @@ _insert image_
 
 <h2>Configuring the DHCP Server</h2>
 
-Before we configure the DHCP server, let's first go over what DHCP is. DHCP stands for Dynamic Host Configuration Protocol, and it automatically assigns IP addresses to devices on a network. It also sends end devices other important data about the network, such as the IP address of the default gateway. DHCP uses a client-server model, where the clients request addressing information and the server leases it out. So to begin the process of using DHCP, let's start by configuring the server to recognize the several networks in our new switch block.
+Before we configure the DHCP server, let's first go over what DHCP is. DHCP stands for Dynamic Host Configuration Protocol, and it automatically assigns IP addresses to devices on a network. It also sends end devices other important data about the network, such as the IP address of the default gateway. DHCP uses a client-server model, where the clients request addressing information and the server leases it out. So to begin the process of using DHCP, let's start by configuring the server to recognize the networks in our new switch block.
 
-Our DHCP server is the device with the IP address of 10.2.1.10/24. We can add server pools for each VLAN. These server pools will define many parameters, such as the default gateway, DNS server, and the assignable IP addresses for the network. Click on the 10.2.1.10/24 device, and then go to the <code>Services</code> tab and select <code>DHCP</code>. There is an existing server pool automatically created by Packet Tracer which cannot be edited, so let's put that one in the parking-lot VLAN:
+Our DHCP server is the device with the IP address of 10.2.1.10/24. We can add server pools for each VLAN. These server pools will define network parameters for the end devices, such as the default gateway, DNS server, and the assignable IP addresses for the network. Click on the 10.2.1.10/24 device, and then go to the <code>Services</code> tab and select <code>DHCP</code>. There is an existing server pool automatically created by Packet Tracer which cannot be edited, so let's put that one in the parking-lot VLAN:
 
 <code>Default Gateway</code> to <code>0.0.0.0</code><br>
 <code>DNS Server</code> to <code>0.0.0.0</code><br>
@@ -712,15 +712,15 @@ Enable the DHCP service by turning it on:
 
 <code>Service: On</code>
 
-Since the DHCP service is now on, let's select a few PCs to configure for DHCP addressing. I chose PC0, PC4, PC5, and PC9. We can change their configuration easily by clicking on the device, going to the config tab, navigating to FastEthernet0, and selecting DHCP under IP Configuration. Make sure to change the display name of the device so you can tell at a glance that you configured it with DHCP. For example, I renamed PC0 to 10.10.1.DHCP/24.
+Since the DHCP service is now on, let's select a few PCs to configure for DHCP addressing. I chose PC0, PC1, PC4, PC5, and PC9. We can change their configuration easily by clicking on the device, going to the config tab, navigating to FastEthernet0, and selecting DHCP under IP Configuration. Make sure to change the display name of the device so you can tell at a glance that you configured it with DHCP. For example, I renamed PC0 to 10.10.1.DHCP/24.
 
 Notice how all of these devices were given an IP address that starts with 169.254.x.x. These are known as Automatic Private IP Addressing (APIPA) addresses. They are given to devices when they fail to obtain an IP address from a DHCP server. So why did our IP address assignment with DHCP fail? 
 
-Our devices weren't able to get IP addresses from the DHCP server because they weren't able to connect to it. The DHCP discover messages never reached the server because the two devices are on different broadcast domains. Due to this, we need to implement another DHCP technology, DHCP relay.
+Our devices weren't able to get IP addresses from the DHCP server because they weren't able to connect to it. The DHCP discover messages never reached the server because the two devices are on different broadcast domains. To do this, we need to implement another DHCP technology, DHCP relay.
 
 <h2>DHCP Relay</h2>
 
-DHCP relay is a mechanism that allows routers to relay DHCP broaadcast requests from a client on one network to a DHCP server on another network. This is done by configuring an ip helper-address, which converts the broadcast on one network into a unicast to the DHCP server. This ip helper-address is configured on the layer 3 switch or router that serves as the default gateway for the client device. We will configure this for all VLANs on Distribution-1 and Distribution-2:
+DHCP relay is a mechanism that allows routers to relay DHCP broadcast requests from a client on one network to a DHCP server on another network. This is done by configuring an ip helper-address, which converts the broadcast on one network into a unicast to the DHCP server. This ip helper-address is configured on the layer 3 switch or router that serves as the default gateway for the client device. We will configure this for all VLANs on Distribution-1 and Distribution-2:
 
 _insert image_
 _insert image_
@@ -731,7 +731,34 @@ _insert image_
 
 <h2>RSTP</h2>
 
-Rapid Spanning Tree Protocol (RSTP) is
+Currently, our topology uses Per-VLAN Spanning Tree Plus (PVST+), which runs a separate instance of Spanning Tree Protocol (STP) for each VLAN. This works in practice, but is outdated and uses the old 802.1D standard. This standard has slower convergence times, sometimes taking up to a minute for the ports to go from blocking to forwarding. We will replace PVST+ with the newer IEEE 802.1w standard, which is Rapid Spanning Tree Protocol (RSTP). RSTP greatly reduces the convergence time after a topology change, and we will notice this difference whenever we start up Packet Tracer. Although we won't get into the details of RSTP, at a glance it introduces new port roles and gets rid of the traditional learning and listening states, allowing the ports to transition to the forwarding state more quickly.
+
+Let's enable RSTP by configuring it on all of the distribution and access switches in the network. This includes all of the switches in both switch blocks, not just the one we added. RSTP is easy to configure, as it is just one command:
+
+<code>spanning-tree mode rapid-pvst</code>
+
+<h2>PortFast and BPDU Guard</h2>
+
+Lastly, we will configure PortFast and BPDU Guard on switch ports. Without PortFast, switch ports go through the STP process. This means that during the time that STP is converging, the port is not forwarding data. This poses a problem as DHCP messages won't be able to go through. By the time STP has converged, the end device may have given up on DHCP. With PortFast, it allows the switch port to immediately begin forwarding data. But this poses another problem, what if a switch is plugged into the port and tries sending data? This could cause STP to break, which is the whole reason why STP doesn't forward data until it is done with its listening, learning, and forwarding convergence process. To protect against switches from being plugged into a port with PortFast enabled, we can also enable BPDU guard. With BPDU guard, any device that tries sending BPDUs will cause that port to immediately shut down, ensuring that STP doesn't break. Let's set up PortFast and BPDU Guard on our access switches.
+
+For Access-1-1, 1-2, 2-1, and 2-2:
+
+<code>interface fa 0/5</code><br>
+<code>spanning-tree portfast</code><br>
+<code>spanning-tree bpduguard enable</code><br>
+
+For Access-1-3, 1-4, 2-3, and 2-4:
+
+<code>interface range fa 0/5, fa 0/6</code><br>
+<code>spanning-tree portfast</code><br>
+<code>spanning-tree bpduguard enable</code><br>
+
+Now in case any switches get plugged in on these ports, the port will immediately shut down and the network stability will be preserved.
+
+That wraps up this section! In the final section, we will implement a First Hop Redundancy Protocol (FHRP) at the data center in our topology.
+
+<h1>Part 8: FHRP-DC (Coming 5/18/25)</h1>
+
 
 
 
