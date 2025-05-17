@@ -667,8 +667,8 @@ In order to configure the DHCP process, we first need to make sure that IP addre
 
 Here are the commands for configuring the SVIs on the distribution switches:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%201.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%202.png">
 
 <h2>Configuring the DHCP Server</h2>
 
@@ -706,7 +706,7 @@ Pool Name | Default Gateway | DNS Server | Start Address | Subnet Mask | Max Use
 
 After adding all of the server pools, the table should look like this:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%203.png">
 
 Enable the DHCP service by turning it on:
 
@@ -722,12 +722,12 @@ Our devices weren't able to get IP addresses from the DHCP server because they w
 
 DHCP relay is a mechanism that allows routers to relay DHCP broadcast requests from a client on one network to a DHCP server on another network. This is done by configuring an ip helper-address, which converts the broadcast on one network into a unicast to the DHCP server. This ip helper-address is configured on the layer 3 switch or router that serves as the default gateway for the client device. We will configure this for all VLANs on Distribution-1 and Distribution-2:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%205.png">
 
 After making these changes on the distribution switches, you can now receive a DHCP assigned IP address on the end devices:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%207%20-%206.png">
 
 <h2>RSTP</h2>
 
