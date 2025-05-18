@@ -2,12 +2,9 @@
 
 In this project, I demonstrate how to:
 
-- Integrate a new switch block into an existing enterprise network using Cisco Packet Tracer, simulating
-real-world brownfield network expansion
-- Configure VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support
-resilient network growth
-- Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a
-multi-layer enterprise environment
+- Integrate a new switch block into an existing enterprise network using Cisco Packet Tracer, simulating real-world brownfield network expansion
+- Configure VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support resilient network growth
+- Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a multi-layer enterprise environment
 
 This project will be split into 8 parts, with a new part being uploaded each week until 5/18/25. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
 
@@ -759,6 +756,40 @@ That wraps up this section! In the final section, we will implement a First Hop 
 
 <h1>Part 8: FHRP-DC (Coming 5/18/25)</h1>
 
+In this section of the lab, we will be configuring a First Hop Redundancy Protocol (FHRP) on the Distribution-DC-1 and Distribution-DC-2 switches. FHRP is a group of protocols that are designed to ensure network availability by keeping a backup default gateway in case the default gateway goes down. The way this works is by taking two layer 3 devices and setting up a virtual default gateway. The main router assumes the identity of the default gateway and tells the other router that it is still working. Then in case the main router goes down, the backup router assumes the identity of the virtual default gateway. The client device has no idea that the main router went down, as its packets are still being sent out like normal. Additionally, the client's ARP table remains unchanged, as it is oblivious to the fact that the default gateway is a different device.
 
+Before we configure a FHRP, let's first enable RSVT, PortFast, and BPDU Guard on the Access-DC switch on interfaces 0/1-3, 0/10. Refer back to the previous section if you forgot how to do this.
 
+Next, since we want to setup our virtual default gateway, let's change the ip addresses of our existing distribution switch ports. This will allow our virtual default gateway address to be the first address on the network, which is the common standard.
 
+_insert image_
+
+<h2>Configuring HSRP</h2>
+
+The specific FHRP we are going to use is called Hot Standby Router Protocol (HSRP). This is a Cisco proprietary protocol, and it is designed to provide redundancy as FHRPs do. What we will do is assign the IP address to the port, give it a high priority for becoming the default router, and then give it preempt. Preempt just allows the router to take over as the default gateway if it were ever to come back online after temporarily being offline.
+
+Here are the commands for configuring HSRP both switches:
+
+_insert image_
+_insert image_
+
+So now if we shutdown the link to the main layer 3 switch...
+
+_insert image_
+_insert image_
+
+...the DHCP/DNS server is still able to reach its default gateway! This is the power of FHRPs, they provide redundancy to the client without the client having to do anything on their end.
+
+And that's it! We have now configured HSRP for the data center portion of the network.
+
+<h1>Conclusion</h1>
+
+Congratulations, you have now:
+
+- Integrated a new switch block into an existing enterprise network using Cisco Packet Tracer, simulating real-world brownfield network expansion
+- Configured VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support resilient network growth
+- Applied the access-distribution-core design model to optimize performance, scalability, and manageability in a multi-layer enterprise environment
+
+Cisco Packet Tracer is a great network simulation tool, and I highly recommend you practice more with it if you have an interest in the field.
+
+For more interactive and exciting projects, I recommend that you check out the other projects and walkthroughs on my <a href="https://www.netacad.com/cisco-packet-tracer"> github page<a/>.
