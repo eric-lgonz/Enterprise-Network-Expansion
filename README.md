@@ -762,7 +762,7 @@ Before we configure a FHRP, let's first enable RSTP, PortFast, and BPDU Guard on
 
 Next, since we want to set up our virtual default gateway, let's change the IP addresses of our existing distribution switch ports. This will allow our virtual default gateway address to be the first address on the network, which is the common standard.
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%201.png">
 
 <h2>Configuring HSRP</h2>
 
@@ -770,19 +770,19 @@ The specific FHRP we are going to use is called Hot Standby Router Protocol (HSR
 
 Here are the commands for configuring HSRP on both switches:
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%202.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%203.png">
 
 So now if we shutdown the link to the main layer 3 switch...
 
-_insert image_
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%204.png">
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%205.png">
 
 ...the DHCP/DNS server is still able to reach its default gateway! This demonstrates the power of FHRPs, they provide redundancy to the client without the client having to do anything on their end.
 
 And that's it! We have now configured HSRP for the data center portion of the network. here's the final layout of our network topology:
 
-_insert image_
+<img src = "https://github.com/eric-lgonz/Enterprise-Network-Expansion/blob/main/assets/Part%208%20-%206.png">
 
 <h1>Conclusion</h1>
 
