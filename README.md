@@ -6,7 +6,7 @@ In this project, I demonstrate how to:
 - Configure VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support resilient network growth
 - Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a multi-layer enterprise environment
 
-This project will be split into 8 parts, with a new part being uploaded each week until 5/18/25. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+This project will be split into 8 separate parts. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
 
 Credit: Rick Graziani, professor at University of California - Santa Cruz and Curriculum Engineering Team Member at Cisco, created the idea for this lab that uses Packet Tracer. My project shown here is a write up that demostrates my knowledge of the lab, with my own adjustments in its implementation.
 
@@ -754,7 +754,7 @@ Now in case any switches get plugged in on these ports, the port will immediatel
 
 That wraps up this section! In the final section, we will implement a First Hop Redundancy Protocol (FHRP) at the data center in our topology.
 
-<h1>Part 8: FHRP-DC (Coming 5/18/25)</h1>
+<h1>Part 8: FHRP-DC</h1>
 
 In this section of the lab, we will be configuring a First Hop Redundancy Protocol (FHRP) on the Distribution-DC-1 and Distribution-DC-2 switches. FHRP is a group of protocols that are designed to ensure network availability by keeping a backup default gateway in case the default gateway goes down. The way this works is by taking two layer 3 devices and setting up a virtual default gateway. The main router assumes the identity of the default gateway and tells the other router that it is still working. Then in case the main router goes down, the backup router assumes the identity of the virtual default gateway. The client device has no idea that the main router went down, as its packets are still being sent out like normal. Additionally, the client's ARP table remains unchanged, as it is oblivious to the fact that the default gateway is a different device.
 
@@ -786,7 +786,7 @@ And that's it! We have now configured HSRP for the data center portion of the ne
 
 <h1>Conclusion</h1>
 
-Congratulations, you have now:
+Congratulations! You have now:
 
 - Integrated a new switch block into an existing enterprise network using Cisco Packet Tracer, simulating real-world brownfield network expansion
 - Configured VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support resilient network growth
