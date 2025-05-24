@@ -6,7 +6,7 @@ In this project, I demonstrate how to:
 - Configure VLANs, trunks, Layer 3 routing, SVIs, EtherChannel, and first-hop redundancy protocols to support resilient network growth
 - Apply the access-distribution-core design model to optimize performance, scalability, and manageability in a multi-layer enterprise environment
 
-This project will be split into 8 separate parts. Each section will focus on a different phase of the enterprise network upgrade to keep things organized and easy to follow.
+This project is split into 8 separate parts, with each section focusing on a different phase of the enterprise network upgrade. Anyone can use this guide and the provided startup packet file to follow along.
 
 Credit: Rick Graziani, professor at University of California - Santa Cruz and Curriculum Engineering Team Member at Cisco, created the idea for this lab that uses Packet Tracer. My project shown here is a write up that demostrates my knowledge of the lab, with my own adjustments in its implementation.
 
