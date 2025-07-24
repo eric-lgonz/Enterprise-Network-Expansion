@@ -1,4 +1,4 @@
-# Enterprise-Network-Expansion
+# Enterprise-Network-Expansion-with-Cisco-Packet-Tracer
 
 In this project, I demonstrate how to:
 
